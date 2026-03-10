@@ -35,8 +35,6 @@ def process_deals(raw_items):
 
     df = pd.DataFrame(rows)
 
-    print("DEALS DF COLUMNS:", df.columns)
-
     # Deal value
     if "masked_deal_value" in df.columns:
         df["masked_deal_value"] = pd.to_numeric(df["masked_deal_value"], errors="coerce")
@@ -93,8 +91,6 @@ def process_work_orders(raw_items):
         rows.append(row)
 
     df = pd.DataFrame(rows)
-
-    print("WORK DF COLUMNS:", df.columns)
 
     # Normalize sector
     if "sector" in df.columns:

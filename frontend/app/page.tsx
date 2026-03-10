@@ -46,7 +46,7 @@ export default function Home() {
 
       try {
 
-        const res = await fetch("https://monday-bi-agent.onrender.com/query", {
+        const res = await fetch("https://monday-bi-agent-u8yp.onrender.com/query", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
