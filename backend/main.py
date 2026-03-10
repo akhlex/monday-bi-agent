@@ -1,10 +1,11 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from agent import process_query
-from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+# CORS (needed for frontend)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -15,6 +16,11 @@ app.add_middleware(
 
 class Query(BaseModel):
     question: str
+
+
+@app.get("/")
+def root():
+    return {"status": "Monday BI Agent running"}
 
 
 @app.post("/query")
